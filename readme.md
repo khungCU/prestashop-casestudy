@@ -80,4 +80,4 @@
 - if run validation on cleaned data will be like
 ![Alt text](passed.png "passed")
 - if run validation on dirty data will be like
-![Alt text](failed.png "failed")git status
+![Alt text](failed.png "failed")
