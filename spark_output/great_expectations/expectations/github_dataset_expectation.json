@@ -1,0 +1,83 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "github_dataset_expectation",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "repo_name",
+          "commit",
+          "commiter_name",
+          "email",
+          "time_sec",
+          "tz_offset",
+          "date",
+          "name",
+          "bytes",
+          "commit_seq",
+          "lag_time_sec",
+          "prv_time_diff"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "repo_name",
+        "mostly": 1
+      },
+      "meta": {
+        "notes": {
+          "content": "repo_name should not be null otherwise the commits is meaningless",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "prv_time_diff",
+        "max_value": 999999999,
+        "min_value": 0
+      },
+      "meta": {
+        "notes": {
+          "content": "prv_time_diff is the time difference of previous commit in second, have to be positive number",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "commit_seq",
+        "max_value": 999999999,
+        "min_value": 0
+      },
+      "meta": {
+        "notes": {
+          "content": "commit_seq is the sequence of every successful commits, have to be positive number",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "commit"
+      },
+      "meta": {
+        "notes": {
+          "content": "commit have to be unique",
+          "format": "markdown"
+        }
+      }
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.14.8"
+  }
+}
